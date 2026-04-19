@@ -12,10 +12,13 @@ COPY . .
 # Roda o validador de segurança. 
 # Se ele der erro (sys.exit(1)), o container para aqui.
 RUN python3 validador_seguranca.py
+# Gera a massa de dados automática
+RUN python3 gerador_massa_dados.py
 
 # Comando para validar arquivos e mostrar a versão do Python
 #CMD ["main.py""sh", "-c", "ls -R && python3 --version"]
 # Comando para rodar o script de validação Python
 #CMD ["python3", "main.py"]
 # Comando: Roda o Python e depois mostra o conteúdo do log gerado
-CMD python3 main.py && cat audit_log.txt
+#CMD python3 main.py && cat audit_log.txt
+CMD ["sh", "-c", "python3 main.py && cat audit_log.txt"]
