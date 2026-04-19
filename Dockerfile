@@ -11,4 +11,4 @@ RUN apk add --no-cache python3
 COPY . . 
 
 # Comando para validar arquivos e mostrar a versão do Python
-CMD ["sh", "-c", "ls -R && python3 --version"]
+CMD ["main.py""sh", "-c", "ls -R && python3 --version"]
