@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 def run_audit():
-    print("--- 🏥 SISTEMA DE AUDITORIA HOSPITALAR ---")
+    print("--- SISTEMA DE AUDITORIA HOSPITALAR ---")
     
     # 1. Lista os arquivos SQL
     sql_files = [f for f in os.listdir('.') if f.endswith('.sql')]
