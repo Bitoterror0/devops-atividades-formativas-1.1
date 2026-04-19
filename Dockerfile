@@ -6,6 +6,9 @@ WORKDIR /app
 
 # Instala o Python 3 de forma limpa
 RUN apk add --no-cache python3
+# Roda o validador de segurança. 
+# Se ele der erro (sys.exit(1)), o container para aqui.
+RUN python3 validador_seguranca.py
 
 # Copia scripts SQL e o README para o container
 COPY . . 
