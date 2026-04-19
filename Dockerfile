@@ -1,8 +1,11 @@
-# Imagem base leve
+# 1. Começa com a sua imagem leve
 FROM alpine:latest
-# Define o diretório dentro do container
+# 2. Define o diretório
 WORKDIR /app
-# Copia scripts SQL e o README para o container
-COPY . . 
-# Comando apenas para validar que os arquivos estão lá
-CMD ["ls", "-R"]
+# 3. INSTALA O PYTHON (A mágica acontece aqui)
+# O apk é o instalador do Alpine (tipo o apt-get do Ubuntu)
+RUN apk add --no-update python3 py3-pip
+# 4. Copia seus arquivos (SQL, README e agora seus .py)
+COPY . .
+# 5. Valida os arquivos e a versão do Python
+CMD ["sh", "-c", "ls -R && python3 --version"]
