@@ -1,4 +1,4 @@
-
+[![Docker Image CI](https://github.com/Bitoterror0/devops-atividades-formativas-1.1/actions/workflows/main.yml/badge.svg)](https://github.com/Bitoterror0/devops-atividades-formativas-1.1/actions)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
