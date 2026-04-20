@@ -10,5 +10,22 @@ jobs:
       - name: Build Docker Image
         run: docker build -t trabalho-puc .
 
-      - name: Test Docker Container
-        run: docker run trabalho-puc
+      # --- SEÇÃO DE TESTES E EXPERIÊNCIA ---
+      
+      # O comando abaixo causava o 'failing' (vermelho) porque a API Flask
+      # nunca encerra a execução, causando timeout no GitHub Actions.
+      # - name: Test Docker Container (Comando Antigo - Causava Timeout)
+      #   run: docker run trabalho-puc
+
+      - name: Test Security and Data Generation
+        run: |
+          # Rodamos apenas os scripts que validam a lógica e encerram.
+          # Isso valida se o container está íntegro sem travar o Workflow.
+          docker run trabalho-puc python3 validador_seguranca.py
+          docker run trabalho-puc python3 gerador_massa_dados.py
+          echo "✅ Validação de segurança e geração de massa concluídas com sucesso!"
+
+      - name: Final Audit Check
+        run: |
+          # Garante que a auditoria inicial (main.py) funcionou corretamente no build
+          docker run trabalho-puc python3 main.py
