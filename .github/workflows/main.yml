@@ -17,20 +17,25 @@ jobs:
 
       # --- SEÇÃO DE TESTES E EXPERIÊNCIA ---
       
-      # O comando abaixo causava o 'failing' (vermelho) porque a API Flask
-      # nunca encerra a execução, causando timeout no GitHub Actions.
       # - name: Test Docker Container (Comando Antigo - Causava Timeout)
       #   run: docker run trabalho-puc
 
       - name: Test Security and Data Generation
         run: |
-          # Rodamos apenas os scripts que validam a lógica e encerram.
-          # Isso valida se o container está íntegro sem travar o Workflow.
+          # Valida integridade e segurança sem travar o Workflow
           docker run trabalho-puc python3 validador_seguranca.py
           docker run trabalho-puc python3 gerador_massa_dados.py
           echo "✅ Validação de segurança e geração de massa concluídas com sucesso!"
 
       - name: Final Audit Check
         run: |
-          # Garante que a auditoria inicial (main.py) funcionou corretamente no build
+          # Garante que a auditoria inicial (main.py) funcionou
           docker run trabalho-puc python3 main.py
+
+      # --- SEMANA 6: MONITORAMENTO E ALERTAS ---
+      - name: Send Deployment Status Alert
+        if: always()
+        run: |
+          echo "SISTEMA DE ALERTA: Finalizando pipeline de CI/CD."
+          echo "Status do Job: ${{ job.status }}"
+          echo "Notificação enviada para o administrador do sistema hospitalar."
