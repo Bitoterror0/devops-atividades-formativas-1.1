@@ -55,6 +55,7 @@ ________________________________________
 ________________________________________
  Camada de Segurança
 O projeto utiliza um Quality Gate no Dockerfile. Se qualquer script SQL violar as regras de segurança, o comando RUN python3 validador_seguranca.py retornará erro, impedindo que uma imagem insegura seja gerada ou enviada para produção.
+O monitoramento de alertas foi configurado via logs de anotações (Annotations) diretamente na esteira de CI/CD. Essa abordagem permite que o administrador visualize alertas críticos de segurança e integridade sem depender de serviços externos de e-mail, garantindo que o log de eventos fique centralizado e auditável conforme as normas de segurança da informação.
 ________________________________________
 Autor
 Victor Silva Lopes Analista de Sistemas 
