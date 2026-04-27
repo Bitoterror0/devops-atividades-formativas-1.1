@@ -10,6 +10,11 @@ jobs:
       - name: Build Docker Image
         run: docker build -t trabalho-puc .
 
+      - name: Run Unit Tests
+        run: |
+          # Executa os 5 testes unitários oficiais dentro do container
+          docker run trabalho-puc python3 test_hospital.py
+
       # --- SEÇÃO DE TESTES E EXPERIÊNCIA ---
       
       # O comando abaixo causava o 'failing' (vermelho) porque a API Flask
