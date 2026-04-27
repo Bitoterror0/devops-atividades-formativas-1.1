@@ -58,3 +58,4 @@ O projeto utiliza um Quality Gate no Dockerfile. Se qualquer script SQL violar a
 ________________________________________
 Autor
 Victor Silva Lopes Analista de Sistemas 
+# Última atualização: 27/04/2026
